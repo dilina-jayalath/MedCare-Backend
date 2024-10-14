@@ -33,7 +33,7 @@ describe("Demographic API", () => {
             console.log("Connected to test database.");
           } catch (error) {
             console.error("MongoDB connection error:", error);
-            process.exit(1);
+            
           }
         }
         return this.connection;

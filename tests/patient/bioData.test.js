@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 
 // Sample BioData to test
 const sampleBioData = {
+  condition: "Vaccination",
+  details: "all vaccines up to date",
+  bmi: "22.86",
   bloodGroup: "O+",
   weight: "70kg",
   height: "175cm",
@@ -17,14 +20,14 @@ describe("BioData API", () => {
 
   // Database connection before tests
   beforeAll(async () => {
-    const dbURI = process.env.MONGO_URI_TEST || "mongodb://localhost:27017/test";
+    const dbURI =
+      process.env.MONGO_URI_TEST || "mongodb://localhost:27017/test";
     try {
       console.log("Connecting to test database...");
       await mongoose.connect(dbURI);
       console.log("Connected to test database.");
     } catch (error) {
       console.error("MongoDB connection error:", error);
-      process.exit(1);
     }
   });
 
@@ -40,7 +43,9 @@ describe("BioData API", () => {
 
   // Test adding bio data
   it("should add bio data", async () => {
-    const res = await request(app).post("/patient/biodata/add").send(sampleBioData);
+    const res = await request(app)
+      .post("/patient/biodata/add")
+      .send(sampleBioData);
     expect(res.statusCode).toBe(201);
     expect(res.body).toHaveProperty("bloodGroup", "O+");
     bioDataId = res.body._id; // Store ID for other tests
@@ -65,7 +70,9 @@ describe("BioData API", () => {
 
   // Test deleting bio data by ID
   it("should delete bio data by ID", async () => {
-    const res = await request(app).delete(`/patient/biodata/delete/${bioDataId}`);
+    const res = await request(app).delete(
+      `/patient/biodata/delete/${bioDataId}`
+    );
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty("message", "BioData deleted successfully");
     console.log("Delete response:", res.body);
