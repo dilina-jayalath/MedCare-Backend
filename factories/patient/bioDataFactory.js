@@ -8,6 +8,7 @@ class BioDataFactory {
         userId: data.userId,
         details: data.details,
         condition: data.condition,
+        bmi : data.bmi
       };
     }
   }

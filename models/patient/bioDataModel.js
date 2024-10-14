@@ -7,6 +7,7 @@ const BioDataSchema = new mongoose.Schema({
   allergies: { type: String, required: false },
   condition: { type: String, required: true },
   details: { type: String, required: false },
+  bmi: { type: String, required: true },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true }, // Reference to the User model
 }, { timestamps: true });
 
