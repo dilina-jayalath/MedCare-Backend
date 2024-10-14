@@ -6,6 +6,8 @@ class BioDataFactory {
         height: data.height,
         allergies: data.allergies,
         userId: data.userId,
+        details: data.details,
+        condition: data.condition,
       };
     }
   }
