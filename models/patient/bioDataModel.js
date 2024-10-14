@@ -8,7 +8,7 @@ const BioDataSchema = new mongoose.Schema({
   condition: { type: String, required: true },
   details: { type: String, required: false },
   bmi: { type: String, required: true },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true }, // Reference to the User model
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }, // Reference to the User model
 }, { timestamps: true });
 
 module.exports = mongoose.model('BioData', BioDataSchema);

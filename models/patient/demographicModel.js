@@ -8,7 +8,7 @@ const DemographicSchema = new mongoose.Schema({
   address: { type: String, required: true },
   mobileNumber: { type: String, required: true },
   emergencyContactNumber: { type: String, required: true },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users'},
 }, { timestamps: true });
 
 const Demographic = mongoose.model('Demographic', DemographicSchema);

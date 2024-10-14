@@ -20,14 +20,15 @@ describe("BioData API", () => {
 
   // Database connection before tests
   beforeAll(async () => {
-    const dbURI =
-      process.env.MONGO_URI_TEST || "mongodb://localhost:27017/test";
-    try {
-      console.log("Connecting to test database...");
-      await mongoose.connect(dbURI);
-      console.log("Connected to test database.");
-    } catch (error) {
-      console.error("MongoDB connection error:", error);
+    if (!mongoose.connection.readyState) { // Check if there's already an active connection
+      const dbURI = process.env.MONGO_URI_TEST || "mongodb://localhost:27017/test";
+      try {
+        console.log("Connecting to test database...");
+        await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log("Connected to test database.");
+      } catch (error) {
+        console.error("MongoDB connection error:", error);
+      }
     }
   });
 
