@@ -7,6 +7,8 @@ class MedicalRecordFactory {
       followUpDate: data.followUpDate ? new Date(data.followUpDate) : null,
       prescription: data.prescription || '',
       userId: data.userId,
+      pName: data.pName || 'Unknown Patient',
+      symptoms: data.symptoms || 'Unknown Symptoms',
     };
   }
 }

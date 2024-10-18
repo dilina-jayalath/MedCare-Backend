@@ -11,6 +11,8 @@ describe('Medical Records API', () => {
     followUpDate: "2024-11-12",
     prescription: "Aspirin",
     userId: "59b99db4cfa9a34dcd7885b6",
+    pName: "John Doe",
+    symptoms: "Headache",
   };
 
   beforeAll(async () => {

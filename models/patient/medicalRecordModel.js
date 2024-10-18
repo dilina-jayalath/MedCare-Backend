@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const medicalRecordSchema = new mongoose.Schema({
   date: { type: Date, required: true },
+  pName:{type: String , required : true},
+  symptoms:{type:String , required : true},
   condition: { type: String, required: true },
   notes: { type: String, required: true },
   followUpDate: { type: Date },
