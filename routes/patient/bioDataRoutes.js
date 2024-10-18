@@ -8,5 +8,7 @@ router.get('/:id', BioDataController.getById);          // Get biodata by ID
 router.get('/user/:userId', BioDataController.getByUserId); // Get biodata by user ID
 router.post('/add', BioDataController.add);             // Add new biodata
 router.delete('/delete/:id', BioDataController.deleteById); // Delete biodata by ID
+router.put('/update/:id', BioDataController.update); // Update biodata by ID
+
 
 module.exports = router;

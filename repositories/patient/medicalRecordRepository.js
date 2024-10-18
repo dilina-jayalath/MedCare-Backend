@@ -15,7 +15,7 @@ class MedicalRecordRepository {
   }
 
   async findByUserId(userId) {
-    return await MedicalRecord.find({ userId }).lean();
+    return await MedicalRecord.find({ userId });
   }
 
   async update(id, updatedData) {

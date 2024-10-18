@@ -5,6 +5,7 @@ const router = express.Router();
 router.post('/add', medicalRecordController.addMedicalRecord);
 router.get('/all', medicalRecordController.getAllMedicalRecords);
 router.get('/:id', medicalRecordController.getMedicalRecordById);
+router.get('/user/:id', medicalRecordController.getMedicalRecordByUserId);
 router.put('/update/:id', medicalRecordController.updateMedicalRecord);
 router.delete('/delete/:id', medicalRecordController.deleteMedicalRecord);
 
