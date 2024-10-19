@@ -1,4 +1,4 @@
-const BioData = require('../../models/patient/bioDataModel');
+const BioData = require("../../models/patient/bioDataModel");
 
 class BioDataRepository {
   async getAll() {
@@ -10,7 +10,7 @@ class BioDataRepository {
   }
 
   async getByUserId(userId) {
-    return await BioData.find({ userId });
+    return await BioData.findOne({ userId });
   }
 
   async add(bioData) {
@@ -20,6 +20,17 @@ class BioDataRepository {
 
   async deleteById(id) {
     return await BioData.findByIdAndDelete(id);
+  }
+
+  async updateById(id, updatedData) {
+    try {
+      const updatedBioData = await BioData.findByIdAndUpdate(id, updatedData, {
+        new: true,
+      });
+      return updatedBioData;
+    } catch (error) {
+      throw new Error("Error updating bio data: " + error.message);
+    }
   }
 }
 

@@ -46,6 +46,24 @@ class DemographicController {
     }
   }
 
+  async update(req, res) {
+    try {
+        const { userId } = req.body;
+        const updatedData = req.body;
+        const existingData = await DemographicRepository.getByUserId(userId);
+
+        if (!existingData) {
+            return res.status(404).json({ message: 'Demographic data not found for the user' });
+        }
+
+        const updatedDemographic = await DemographicRepository.update(userId, updatedData);
+        res.status(200).json(updatedDemographic);
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating demographic data', error });
+    }
+}
+
+
   async deleteById(req, res) {
     try {
       const { id } = req.params;
