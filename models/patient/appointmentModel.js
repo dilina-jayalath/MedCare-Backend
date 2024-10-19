@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const appointmentSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users'},
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Patient'},
   date: { type: Date, required: true },
   time: { type: String, required: true },
   userName: { type: String, required: true },

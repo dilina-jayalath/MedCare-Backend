@@ -21,6 +21,11 @@ class DemographicRepository {
   async deleteById(id) {
     return await Demographic.findByIdAndDelete(id);
   }
+
+  async update(userId, updatedData) {
+    return await Demographic.findOneAndUpdate({ userId }, updatedData, { new: true });
+}
+
 }
 
 module.exports = new DemographicRepository();

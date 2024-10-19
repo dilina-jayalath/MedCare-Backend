@@ -7,8 +7,12 @@ class MedicalRecordFactory {
       followUpDate: data.followUpDate ? new Date(data.followUpDate) : null,
       prescription: data.prescription || '',
       userId: data.userId,
+<<<<<<< Updated upstream
       pName: data.pName || 'Unknown Patient',
       symptoms: data.symptoms || 'Unknown Symptoms',
+=======
+      pname: data.pname || '',
+>>>>>>> Stashed changes
     };
   }
 }

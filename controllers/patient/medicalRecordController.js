@@ -34,6 +34,16 @@ exports.getMedicalRecordById = async (req, res) => {
   }
 };
 
+exports.getMedicalRecordByUserId = async (req, res) => {
+  try {
+    const record = await medicalRecordRepository.findByUserId(req.params.id);
+    if (!record) return res.status(404).json({ message: 'Medical record not found' });
+    return res.status(200).json(record);
+  } catch (error) {
+    return res.status(500).json({ message: 'Failed to fetch medical record', error });
+  }
+};
+
 // Update medical record by ID
 exports.updateMedicalRecord = async (req, res) => {
   try {
