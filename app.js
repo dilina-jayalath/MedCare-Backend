@@ -4,13 +4,17 @@ const connectDB = require("./config/db");
 require("dotenv").config();
 
 const app = express();
+const router = express.Router();
 connectDB.connect(process.env.MONGO_URI);
 
+router.get("/", (req, res) => {
+    res.send("App is running..");
+});
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.use
 
 
 // Routes
