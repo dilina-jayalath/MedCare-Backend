@@ -26,6 +26,8 @@ const medicalRecord = require('./routes/patient/medicalRecordRoutes');
 const userRoutes = require('./routes/user/userRoutes');
 const authRoutes = require('./routes/auth/authRoutes');
 const patientRoutes = require('./routes/patient/patientRoutes');
+const servicesRouter = require('./routes/patient/servicesRoute')
+const bookedServiceRouter = require('./routes/patient/bookedServiceRoute')
 
 // Routes
 app.use("/patient/demographic", demographicRoutes); // Ensure this matches your test file
@@ -33,6 +35,8 @@ app.use("/patient/biodata", BioDataRoutes); // Ensure this matches your test fil
 app.use("/patient/appointments", appointmentRoutes); // Ensure this matches your test file
 app.use("/patient/doctors", doctorRoutes); // Ensure this matches your test file
 app.use("/patient/medical", medicalRecord); // Ensure this matches your test file
+app.use("/services", servicesRouter);
+app.use("/bookedService", bookedServiceRouter);
 app.use("/user", userRoutes); // Ensure this matches your test file
 app.use("/auth", authRoutes); // Ensure this matches your test file
 app.use("/patients", patientRoutes); // Ensure this matches your test file

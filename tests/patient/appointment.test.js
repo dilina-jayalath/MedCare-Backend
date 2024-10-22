@@ -61,6 +61,13 @@ describe('Appointment API', () => {
     expect(Array.isArray(res.body)).toBe(true);
   });
 
+  
+  it('should get appointment by fake ID', async () => {
+    const res = await request(app).get(`/patient/appointments/user/${"fakeUid"}`);
+    expect(res.statusCode).toBe(500);
+    expect(Array.isArray(res.body)).toBe(false);
+  });
+
   it('should update an appointment', async () => {
     const updatedAppointment = { ...sampleAppointment, problem: "Updated problem" };
     const res = await request(app).put(`/patient/appointments/${appointmentId}`).send(updatedAppointment);

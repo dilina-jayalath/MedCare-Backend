@@ -5,7 +5,8 @@ class UserFactory {
         password: data.password,
         email: data.email,
         phone: data.phone,
-        role: data.role
+        role: data.role,
+        private: data.private
       };
     }
 }
